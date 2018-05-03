@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>หน้าหลัก</strong>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding text-center style="padding-bottom: 30%;" 
+      class="animated fadeInDown">
+      <div class="logo"></div>
+      <h4 ion-text class="text-primary">
+        <strong>กรุณาเลือกเพศของคุณ</strong>
+      </h4>
+    </div>
+
+    <div style="padding-bottom: 30%;">
+      <button ion-button round icon-start block color="dark" tappable (click)="login('male')">
+        <ion-icon name="md-male"></ion-icon>
+        เพศชาย
+      </button>
+    </div>
+
+    <div style="margin-bottom: 30%;">
+      <button ion-button round icon-start block color="Pink" tappable (click)="login('female')">
+        <ion-icon name="md-female" ></ion-icon>
+        เพศหญิง
+      </button>
+    </div>
+
+  </div>
+</ion-content>

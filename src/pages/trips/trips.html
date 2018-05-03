@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      <span ion-text>ผลการวิเคราะห์</span>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="homePage()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="trips detail-bg">
+  <!--list of trips-->
+  <div class="trip card" margin-bottom>
+    <div class="background border-bottom" text-center>
+      <img *ngIf="detail=='น้ำหนักน้อยกว่ามาตรฐาน'" src="assets/img/trip/thumb/1.jpg">
+      <img *ngIf="detail=='ปกติ'" src="assets/img/trip/thumb/2.jpg">
+      <img *ngIf="detail=='อ้วนระดับ 1'" src="assets/img/trip/thumb/3.jpg">
+      <img *ngIf="detail=='อ้วนระดับ 2'" src="assets/img/trip/thumb/4.jpg">
+      <img *ngIf="detail=='ค่า BMI ไม่ถูกต้อง'" src="assets/img/trip/thumb/5.jpg">          
+    </div>
+  </div>
+
+  <div class="card round" margin-top>
+    <ion-list no-margin > 
+      <ion-item class="primary-bg" style="height: 46.09375px;">
+        <ion-avatar >
+          <img *ngIf="obj.sex == 'male'" src="assets/img/male.png" style="margin: auto;">
+          <img *ngIf="obj.sex == 'female'" src="assets/img/female.png" style="margin: auto;">
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <h5 ion-text color="dark">ค่า BMI:</h5>
+      <ion-item no-padding>
+        <ion-label color="danger" >{{ BMI }}</ion-label>
+      </ion-item>
+
+      <h5 ion-text color="dark">สัดส่วนจากค่า BMI:</h5>
+      <ion-item no-padding>
+        <ion-label color="danger" >{{ detail }}</ion-label>
+      </ion-item>
+
+      <h5 ion-text color="dark">ต้องการพลังงานในแต่ละวัน(BMR):</h5>
+      <ion-item no-padding>
+        <ion-label color="danger" >{{ BMR }}</ion-label>
+        <ion-label color="gray" text-right>กิโลแคลอรี่/วัน
+        </ion-label>
+      </ion-item>
+
+      <h5 ion-text color="dark">การเผาผลาญพลังงานในแต่ละวัน:</h5>
+      <ion-item no-padding>
+        <ion-label color="danger">{{ burn }}</ion-label>
+        <ion-label color="gray" text-right>กิโลแคลอรี่/วัน
+        </ion-label>
+      </ion-item>
+
+      <h5 ion-text color="dark">ปริมาณนํ้าที่ควรได้รับต่อวัน:</h5>
+      <ion-item no-padding>
+        <ion-label color="danger">{{ water }}</ion-label>
+        <ion-label color="gray" text-right>ลิตร
+        </ion-label>
+      </ion-item>
+    </div>
+  
+  </div>
+</ion-content>

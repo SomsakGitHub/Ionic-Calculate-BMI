@@ -1,0 +1,34 @@
+<ion-menu side="left" id="authenticated" [content]="content">
+  <ion-header>
+    <ion-toolbar class="user-profile" style="height: 90px;">
+      <ion-grid style="padding-top: 0px; padding-bottom: 0px;">
+        <ion-row>
+          <ion-col col-4 style="padding-top: 0px; padding-bottom: 0px;">
+              <div class="user-avatar">
+                <img src="../assets/img/home.png">
+              </div>
+          </ion-col>
+          <ion-col padding-top col-8>
+            <h2 ion-text class="no-margin bold text-white">
+              ยินดีต้อนรับ
+            </h2>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="primary">
+
+    <ion-list class="user-list">
+      <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+        <ion-icon item-left [name]="menuItem.icon" color="primary"></ion-icon>
+        <span ion-text color="primary">{{menuItem.title}}</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

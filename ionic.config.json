@@ -1,0 +1,8 @@
+{
+  "name": "bmiapp",
+  "app_id": "e508d7e2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

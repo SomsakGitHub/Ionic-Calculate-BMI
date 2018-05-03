@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <div>
+        <ion-searchbar
+          [(ngModel)]="myInput"
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onInput($event)"
+          (ionCancel)="onCancel($event)"
+          placeholder="กรุณาระบุชื่อกิจกรรม" style="width: 216px;">
+        </ion-searchbar>
+    </div>  
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+  
+  <ion-grid class="card" style="padding: 0px;">
+
+    <ion-row text-center class="header" >
+    <ion-col col-8 >
+        ชื่อกิจกรรม/1 ชั่วโมง
+      </ion-col>
+      <ion-col col-4 >
+        กิโลแคลอรี      
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let i of rows" class="cell">
+      <ion-col col-8 >
+        {{i.name}}
+      </ion-col>
+      <ion-col col-4 text-center> 
+        {{i.summary}}
+      </ion-col>
+    </ion-row >
+  </ion-grid>
+
+  <ion-infinite-scroll *ngIf="opset<total" (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>กรอกข้อมูล</strong>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="common-bg">
+
+  <ion-card no-margin margin-bottom class="full-width">
+    <form (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-icon name="contact" color="primary" item-left></ion-icon>
+        <ion-label>อายุ</ion-label>
+        <ion-input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="todo.age" placeholder="( ปี )"  name="age"></ion-input>
+      </ion-item>
+      <p class="error-box" *ngIf="todo.age<=1||todo.age>120">* ไม่เกิน 120 ปี. !</p>
+      
+      <ion-item>
+        <ion-icon name="logo-buffer" color="primary" item-left></ion-icon>
+        <ion-label>นํ้าหนัก</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.weight" placeholder="( กิโลกรัม )"  name="weight"></ion-input>
+      </ion-item>
+      <p class="error-box" *ngIf="todo.weight<=0||todo.weight>300">* ไม่เกิน 300 กิโลกรัม. !</p>
+
+      <ion-item>
+        <ion-icon name="man" color="primary" item-left></ion-icon>
+        <ion-label>ส่วนสูง</ion-label>
+        <ion-input type="number" [(ngModel)]="todo.height" placeholder="( เซนติเมตร )" name="height"></ion-input>
+      </ion-item>
+      <p class="error-box" *ngIf="todo.height<=0||todo.height>300">* ไม่เกิน 300 เซนติเมตร. !</p>
+
+      <ion-item>
+        <ion-label>กิจกรรม</ion-label>
+          <ion-select [(ngModel)]="todo.activities" name="activities">
+            <ion-option value="NoExercise">ไม่ออกกำลังกายเลย</ion-option>
+            <ion-option value="ExerciseLittle">ออกกำลังกาย 1-3 วัน</ion-option>
+            <ion-option value="ExerciseNormal">ออกกำลังกาย 3-5 วัน</ion-option>
+            <ion-option value="ExerciseMuch">ออกกำลังกาย 6-7 วัน</ion-option>
+            <ion-option value="ExerciseVeryMuch">ออกกำลังกายอย่างหนัก</ion-option>
+          </ion-select>
+      </ion-item>
+
+      <button ion-button round type="submit" block [disabled]="(todo.age<=1||todo.age>120) || (todo.weight<=0||todo.weight>300) || (todo.height<=0||todo.height>300) || (!todo.activities)">ประมวลผล</button>
+    </form>
+  </ion-card>
+
+      <div text-center class="user-avatar">
+        <img *ngIf="sexs == 'male'" src="assets/img/male200px.png">
+        <img *ngIf="sexs == 'female'" src="assets/img/female200px.png">
+      </div>
+
+</ion-content>
